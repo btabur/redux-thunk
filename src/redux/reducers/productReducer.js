@@ -1,3 +1,4 @@
+import {actionTypes } from "../actions/actionTypes";
 
 const initialState = {
     product : [],
@@ -7,11 +8,15 @@ const initialState = {
 
 const productReducer = (state=initialState,action)=> {
     switch(action.type) {
-        case'SET_PRODUCT' :
+        case actionTypes.SET_PRODUCTS:
         return {
             ...state,
             product:action.payload,
             isLoading:false}
+        case actionTypes.SET_ERROR :
+            return {
+                ...state, isError:true
+            }
 
         default:
             return state

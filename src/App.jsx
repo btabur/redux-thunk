@@ -5,6 +5,7 @@ import Basket from './pages/Basket'
 import Header from './components/Header'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
+import { getProduct } from './redux/actions/productAction'
 
 
 const App = () => {
@@ -12,13 +13,8 @@ const App = () => {
 
   const dispatch = useDispatch();
   useEffect(()=> {
-    axios.get('/products').then((res) => {
-     dispatch({
-      type:'SET_PRODUCT',
-      payload:res.data
-    })
-
-    }).catch(err=> console.log(err))
+    
+   dispatch(getProduct())
   },[])
   return (
    <BrowserRouter>

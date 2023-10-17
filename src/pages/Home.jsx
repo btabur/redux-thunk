@@ -12,7 +12,7 @@ const Home = () => {
   
 
   return (
-    <div>
+    <div className="mt-5">
       {productReducer.isLoading && <Loading />}
 
       <div className="d-flex flex-wrap gap-4 justify-content-center p-4">
